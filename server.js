@@ -8,13 +8,13 @@ const io = socketio(server)
 const port = 8000
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html')
+    res.sendFile(__dirname + '/public/index.html')
 });
-
+app.use(express.static(__dirname + '/public'));
 io.on('connection', (socket) => {
     socket.on('chatMessage', msg => {
         console.log(socket.id + ': ' + msg)
-        io.emit('chatMessage', {'userid': socket.id, 'message': msg})
+        io.emit('chatMessage', { 'userid': socket.id, 'message': msg })
     })
 
     //console.log('user connected ' + socket.id)
@@ -24,7 +24,7 @@ io.on('connection', (socket) => {
 })
 
 server.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`)
+    console.log(`Example app listening on port ${port}!`)
 });
 
 app.use('/js', express.static('./public/js/'))
