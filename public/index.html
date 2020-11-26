@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+    <h2 class="game-name">Battle Ships</h2>
     <div id="container">
         <div id="human-board" class="board" data-board-name="human">
         </div>
@@ -16,15 +16,15 @@
         </div>
     </div>
 
-    <h1>Chat</h1>
+    <h1 class="chat-name">Chat</h1>
     <ul id="message-container"></ul>
-    <input id="message-box" type="text">
+    <input class="input-text" id="message-box" type="text">
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/chat.js"></script>
     <script src="/js/ship.js"></script>
     <style>
-.body {
-
+body {
+    background-color: black;
 }
 
 #container   {
@@ -44,13 +44,23 @@
 .cell {
     width: 3em;
     height: 3em;
-    border: 1px solid black;
+    border: 1px solid white;
     text-align: center;
     font-size: 1em;
 }
 
 .ship {
     background-color: red;
+}
+
+.chat-name {
+    color: white;
+}
+
+.game-name {
+    justify-content: center;
+    display: flex;
+    color: white;
 }
 
 li {
